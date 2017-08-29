@@ -28,6 +28,7 @@
 			font-size: 2rem;
 			text-align: center;
 		}
+		button:focus { outline:0 !important; }
 		.titleImg {
 			display: block;
 			margin: 0 auto;
@@ -61,10 +62,40 @@
 			transition: all 330ms;
 		}
 
+		.toggleBtn {
+			margin: 0 auto;
+			text-align: center;
+		}
+		.toggleBtn button {
+			display: inline-block;
+			text-align: center;
+			width: 65px;
+			height: 27px;
+			background-color: transparent;
+			border: 1px solid #ccc;
+		}
+		.toggleBtn .leftBtn {
+			border-top-left-radius: 7px;
+			border-bottom-left-radius: 7px;
+		}
+		.toggleBtn .rightBtn {
+			border-left: none;
+			border-top-right-radius: 7px;
+			border-bottom-right-radius: 7px;
+		}
+		.toggleBtn .activeBtn {
+			color: white;
+			background-color: #2196F3;
+			border-color: #2196F3;
+		}
+		#enIntro {
+			display: none;
+		}
+
 		@media only screen and (max-width: 1000px) {
 			.preReleaseNote {
 				line-height: 2.5rem;
-				padding: 0 5rem;
+				padding: 0 4.6rem;
 			}
 		}
 	</style>
@@ -74,43 +105,113 @@
 	<img class="titleImg" src="http://ww1.sinaimg.cn/large/7359a3efly1ffge43zfpcj20rs0kumym.jpg" alt="Idea Pill Image, image from Catherine L on Dribbble">
 	<h1>Idea Pills</h1>
 	<p class="copyright">Picture from Catherine L on Dribbble</p>
-	<p class="preReleaseNote">
-		『闪念胶囊』(Idea Pills) 
-		<br />
-		是锤子科技在 2017 年 5 月 9 日发布手机中的一项新功能。
-		<br />
-		使用语音快速输入信息并分类记录成『胶囊』。
-		<br />
-		可解决灵感一瞬即逝的问题，并快速处理繁杂的日常事务、待办事项。
-		<br />
-		胶囊可按照分类快速整合、排序，也可被拖拽进入文档快速编辑。
-		<br /><br />
-		···
-	</p>
-	<p class="preReleaseNote reasonToBuild">
-		目前没有找到类似应用，估计锤子也不会上架应用，不然咋卖手机？
-		<br />
-		我也很喜欢这个功能，打算做一个 web 版本自己用，域名买好了：<a href="http://ideapills.xyz">ideapills.xyz</a>
-		<br />
-		如果你感兴趣也欢迎使用。
-		<br /><br />
-		···
-	</p>
-	<p class="preReleaseNote personalInfo">
-		欢迎联系我 / 关注项目进度：
-		<br />
-		微信公众号：<a href="http://ww1.sinaimg.cn/large/7359a3efgy1fdnsao0ay7j20vo0fuwix" target="_blank">MRWHY37</a>
-		<br />
-		博客主页：<a href="http://mr-why.com" target="_blank">mr-why.com</a>
-		<br />
-		邮箱：<a href="mailto:h.y.wang@outlook.com">h.y.wang@outlook.com</a>
-		<br /><br />
-	</p>
-	<p class="copyright">
-		PS 1：不商业化不知道是否涉及侵权问题。
-		<br />
-		PS 2：有时间就码代码，不保证快速上线。
-	</p>
+
+	<div class="toggleBtn">
+		<button class="leftBtn activeBtn">中文</button><button class="rightBtn">EN</button>
+	</div>
+
+	<div id="cnIntro">
+		<p class="preReleaseNote">
+			『闪念胶囊』(Idea Pills) 
+			<br />
+			是锤子科技在 2017 年 5 月 9 日发布手机中的一项新功能。
+			<br />
+			使用语音快速输入信息并分类记录成『胶囊』。
+			<br />
+			可解决灵感一瞬即逝的问题，并快速处理繁杂的日常待办事项。
+			<br />
+			胶囊可按照分类快速整合排序，也可被拖拽进文档快速编辑。
+			<br /><br />
+			···
+		</p>
+		<p class="preReleaseNote reasonToBuild">
+			我很喜欢这个功能，平时也会用<a href="http://wiki.mbalib.com/wiki/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E4%BC%98%E5%85%88%E7%9F%A9%E9%98%B5">时间管理优先矩阵</a>来管理时间，但是没有找到类似应用。
+			<br />
+			所以我做了一个 web 版本自己用，域名是：<a href="http://ideapills.xyz/app">ideapills.xyz/app</a>
+			<br />
+			如果你感兴趣也欢迎使用。
+			<br /><br />
+			···
+		</p>
+		<p class="preReleaseNote personalInfo">
+			欢迎联系我：
+			<br />
+			微信公众号：<a href="http://ww1.sinaimg.cn/large/7359a3efgy1fdnsao0ay7j20vo0fuwix">MRWHY37</a>
+			<br />
+			博客主页：<a href="http://mr-why.com">mr-why.com</a>
+			<br />
+			邮箱：<a href="mailto:h.y.wang@outlook.com">h.y.wang@outlook.com</a>
+			<br /><br />
+		</p>
+		<p class="copyright">
+			PS1：把 App <a style="color: #aaa" href="http://jingyan.baidu.com/article/a65957f48f9ab524e67f9beb.html">添加到桌面</a>用更方便。
+			<br />
+			PS2：本项目使用<a style="color: #aaa" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享协议 4.0</a>。
+		</p>
+	</div>
+	<div id="enIntro">
+		<p class="preReleaseNote">
+			Idea Pills 
+			<br />
+			was a new feature of Hammer Technology's mobile phone released on May 9, 2017. 
+			<br />
+			It uses voice to quickly capture information and save it into "capsules".
+			<br />
+			It solves the problem of inspiration fleeting, and quickly deal with complex daily affairs.
+			<br /><br />
+			···
+		</p>
+		<p class="preReleaseNote reasonToBuild">
+			I like this idea of capturing fleeting ideas and daily affairs. 
+			<br />
+			And I always use <a href="http://www.eisenhower.me/eisenhower-matrix/">Eisenhower Decision Matrix</a> to categorize affairs by their importance and urgency.
+			<br />
+			But no similar App is found. So I did a web app for my own usage.
+			<br />
+			If you are interested also welcome to use: <a href="http://ideapills.xyz/app">ideapills.xyz/app</a>.	
+			<br /><br />
+			···
+		</p>
+		<p class="preReleaseNote personalInfo">
+			Welcome to contact me:
+			<br />
+			LinkedIn: <a href="https://www.linkedin.com/in/hubertcmu/">Hubert Wang</a>
+			<br />
+			My Blog: <a href="http://mr-why.com">mr-why.com</a>
+			<br />
+			Email: <a href="mailto:h.y.wang@outlook.com">h.y.wang@outlook.com</a>
+			<br /><br />
+		</p>
+		<p class="copyright">
+			It's convenient to use the App by <a style="color: #aaa" href="https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/">adding it to homescreen</a>.
+			<br />
+			This Project Follows <a style="color: #aaa" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons CC-BY-NC-ND 4.0</a>.
+		</p>
+	</div>
+
+	<script>
+		(function() {
+			var cnBtn = document.getElementsByClassName("leftBtn")[0];
+			var enBtn = document.getElementsByClassName("rightBtn")[0];
+
+			var cnIntro = document.getElementById("cnIntro");
+			var enIntro = document.getElementById("enIntro");
+
+			enBtn.onclick = function() {
+				cnIntro.style.display = "none";
+				enIntro.style.display = "block";
+				cnBtn.classList.remove("activeBtn");
+				enBtn.classList.add("activeBtn");
+			}
+			cnBtn.onclick = function() {
+				enIntro.style.display = "none";
+				cnIntro.style.display = "block";
+				enBtn.classList.remove("activeBtn");
+				cnBtn.classList.add("activeBtn");
+			}
+		})();
+	</script>
+
 </body>
 
 </html>
